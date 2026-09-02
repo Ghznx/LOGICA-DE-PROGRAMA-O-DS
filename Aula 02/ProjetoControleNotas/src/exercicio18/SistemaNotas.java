@@ -11,7 +11,7 @@ public class SistemaNotas {
 		ArrayList<Double> notas = new ArrayList<>();
 		
 		Scanner sc = new Scanner(System.in);
-		String opcao;
+		int opcao;
 		String aluno;
 		double nota;
 		double novaNota;
@@ -33,10 +33,10 @@ public class SistemaNotas {
 			System.out.println("9 - Encerrar");
 			
 			System.out.print("Informe a opção desejada: ");
-			opcao = sc.nextLine();
+			opcao = Integer.parseInt(sc.nextLine());
 			
 			switch(opcao) {
-				case "1":
+				case 1:
 					System.out.print("Aluno adicionado: ");
 					aluno = sc.nextLine();
 					alunos.add(aluno);
@@ -44,13 +44,13 @@ public class SistemaNotas {
 					nota = Double.parseDouble(sc.nextLine());
 					notas.add(nota);
 					break;
-				case "2":
+				case 2:
 					System.out.println("Alunos: ");
 					for(int i = 0;i < alunos.size();i++) {
 						System.out.println("Posição "+ i + " - "+ alunos.get(i) + " - "+ "Nota: "+ notas.get(i));
 					}
 					break;
-				case "3":
+				case 3:
 					System.out.print("Informe um nome: ");
 					aluno = sc.nextLine();
 					if(aluno.indexOf(aluno) == -1) {
@@ -59,7 +59,7 @@ public class SistemaNotas {
 						System.out.println("Posição: "+ alunos.indexOf(aluno));
 					}
 					break;
-				case "4":
+				case 4:
 					System.out.print("Nome do aluno: ");
 					aluno = sc.nextLine();
 					posicao = aluno.indexOf(aluno);
@@ -67,20 +67,20 @@ public class SistemaNotas {
 					novaNota = Double.parseDouble(sc.nextLine());
 					notas.set(posicao, novaNota);
 					break;
-				case "5":
+				case 5:
 					System.out.print("Nome do aluno: ");
 					aluno = sc.nextLine();
 					posicao = aluno.indexOf(aluno);
 					alunos.remove(posicao);
 					notas.remove(posicao);
 					break;
-				case "6":
+				case 6:
 					for(int i = 0;i < notas.size();i++) {
 						soma += notas.get(i);
 					}
 					System.out.println("Média da turma: "+ (soma/notas.size()));
 					break;
-				case "7":
+				case 7:
 					maior = notas.get(0);
 					menor = notas.get(0);
 					for(int i = 0;i < notas.size();i++) {
@@ -94,7 +94,7 @@ public class SistemaNotas {
 					System.out.println("Maior nota: "+ maior);
 					System.out.println("Menor nota: "+ menor);
 					break;
-				case "8":
+				case 8:
 					for(int i = 0;i < alunos.size();i++) {
 						System.out.print(alunos.get(i));
 						if(notas.get(i) >= 7) {
@@ -106,7 +106,7 @@ public class SistemaNotas {
 						}
 					}
 					break;
-				case "9":
+				case 9:
 					System.out.print("Deseja realmente encerrar e apagar os dados(Sim/Nao)? ");
 					resposta = sc.nextLine();
 					if(resposta == "Sim") {
@@ -119,7 +119,7 @@ public class SistemaNotas {
 					}
 					break;
 			}
-		} while(opcao != "9");
+		} while(opcao != 9);
 		
 		
 		sc.close();
